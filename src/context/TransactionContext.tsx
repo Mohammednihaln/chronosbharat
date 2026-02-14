@@ -126,7 +126,9 @@ export function TransactionProvider({ children }: { children: ReactNode }) {
     // WebSocket connection
     useEffect(() => {
         const connect = () => {
-            const ws = new WebSocket("ws://localhost:8000/ws");
+            // Use environment variable for WebSocket URL or fallback to localhost
+            const wsUrl = process.env.NEXT_PUBLIC_WS_URL || "ws://localhost:8000/ws";
+            const ws = new WebSocket(wsUrl);
 
             ws.onopen = () => {
                 console.log("WebSocket connected");
