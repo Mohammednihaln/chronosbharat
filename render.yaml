@@ -1,4 +1,5 @@
 services:
+  # ── Python FastAPI Backend ──────────────────────────────
   - type: web
     name: chronos-bharat-backend
     runtime: python
@@ -8,3 +9,16 @@ services:
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.0
+
+  # ── Next.js Frontend ────────────────────────────────────
+  - type: web
+    name: chronos-bharat-frontend
+    runtime: node
+    rootDir: .
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 20.0.0
+      - key: NEXT_PUBLIC_WS_URL
+        value: wss://chronos-bharat-backend.onrender.com/ws
