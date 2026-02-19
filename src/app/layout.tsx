@@ -13,8 +13,6 @@ export const metadata: Metadata = {
     "Real-time pre-transfer fraud prevention system for Indian UPI transactions",
 };
 
-import FirebaseAnalytics from "@/components/FirebaseAnalytics";
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -23,7 +21,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} font-sans antialiased`}>
-        <FirebaseAnalytics />
         {children}
       </body>
     </html>
